@@ -1,26 +1,237 @@
-<html>
-  <head>
-    <title> My Profile </title>
-    <link rel="stylesheet" href="style.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ibrahim Ali | Full-Stack Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&family=Roboto+Mono&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+      font-family: 'Open Sans', sans-serif;
+    }
+    body {
+      background: #f9f7f7;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    a {
+      color: #0077cc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #004a99;
+    }
 
-    <body>
-      <div class="container">
-        <div class="top-of-profile">
-        <div class="card-white" id = "introduction">
-          <img src= "images/profile.jpeg" alt="Photo of Ibrahim" id="profile-pic">
-          <h1> Ibrahim Ali</h1>
-          <h2>Programmer 👨🏽‍💻</h2>
-          <p> I am an Engineer 👷🏽‍♂️, with an interest in TECH and currently working through a lewagon bootcamp⛺️</p>
-        </div>
-      </div>
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
 
-      <div class = "card-white">
-        <p> If you want to check out more, please click the button below ⬇️</p>
-      <a href="#" class="btn-blue">My Linkedin Profile 🖇️</a>
-     </div>
-     </div>
-  </body>
+    #profile-pic {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #0077cc;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: #2a2a72;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-weight: 600;
+      font-size: 1.4rem;
+      color: #cf6a87;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+    p.lead {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 600px;
+      margin: 0 auto 40px auto;
+    }
+
+    /* Contact buttons */
+    .btn-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 50px;
+    }
+    .btn {
+      background: #0077cc;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: 600;
+      box-shadow: 0 4px 8px rgba(0, 119, 204, 0.3);
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background: #004a99;
+    }
+
+    section {
+      background: white;
+      padding: 30px 40px;
+      margin-bottom: 30px;
+      border-radius: 15px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+
+    section h3 {
+      margin-bottom: 20px;
+      color: #2a2a72;
+      border-bottom: 3px solid #cf6a87;
+      display: inline-block;
+      padding-bottom: 5px;
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
+
+    /* Skills list */
+    .skills-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .skills-list li {
+      background: #cf6a87;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 6px rgba(207, 106, 135, 0.4);
+    }
+
+    /* Projects */
+    .projects-list {
+      list-style: none;
+    }
+    .projects-list li {
+      margin-bottom: 18px;
+      font-size: 1rem;
+    }
+    .projects-list a.project-link {
+      font-weight: 700;
+      color: #0077cc;
+      font-family: 'Roboto Mono', monospace;
+    }
+    .projects-list a.project-link:hover {
+      color: #004a99;
+      text-decoration: underline;
+    }
+    .project-desc {
+      margin-top: 5px;
+      font-style: italic;
+      color: #555;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    footer a {
+      color: #cf6a87;
+      font-weight: 600;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      body {
+        padding: 15px;
+      }
+      section {
+        padding: 20px;
+      }
+      .btn-container {
+        flex-direction: column;
+      }
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+      .skills-list {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img id="profile-pic" src="images/profile.jpeg" alt="Photo of Ibrahim Ali" />
+    <h1>Ibrahim Ali</h1>
+    <h2>Full-Stack Developer 👨🏽‍💻 & Engineer 👷🏽‍♂️</h2>
+    <p class="lead">Technically strong engineer turned full-stack developer, passionate about clean code, team-driven problem solving, and continuous learning. Currently sharpening skills through the Le Wagon bootcamp.</p>
+
+    <div class="btn-container">
+      <a href="https://github.com/ibby-ali2" class="btn" target="_blank" rel="noopener noreferrer">GitHub Profile 🐙</a>
+      <a href="https://www.linkedin.com/in/ibby-ali/" class="btn" target="_blank" rel="noopener noreferrer">LinkedIn Profile 🖇️</a>
+      <a href="mailto:ibbyali2@gmail.com" class="btn">Email Me 📧</a>
+    </div>
+  </header>
+
+  <section id="skills">
+    <h3>Skills & Technologies</h3>
+    <ul class="skills-list">
+      <li>Ruby on Rails</li>
+      <li>JavaScript (ES6+)</li>
+      <li>HTML & CSS</li>
+      <li>SQL & PostgreSQL</li>
+      <li>React</li>
+      <li>Git & GitHub</li>
+      <li>Python & Data Science</li>
+      <li>Figma & UI Design</li>
+      <li>Heroku Deployment</li>
+      <li>CAD & Mechanical Design</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h3>Projects Showcase</h3>
+    <ul class="projects-list">
+      <li>
+        <a href="https://github.com/ibby-ali2/airbnb-clone" class="project-link" target="_blank" rel="noopener noreferrer">Airbnb Replica</a>
+        <p class="project-desc">A clean clone of Airbnb homepage with card layouts using Ruby on Rails, CSS, Bootstrap, and SQLite.</p>
+      </li>
+      <li>
+        <a href="https://github.com/ibby-ali2/deliveroo-clone" class="project-link" target="_blank" rel="noopener noreferrer">Deliveroo Clone</a>
+        <p class="project-desc">Food delivery platform with full CRUD, MVC structure, and restaurant database built in Ruby on Rails.</p>
+      </li>
+      <li>
+        <a href="https://medfly-lewagon-4a2de7cc09aa.herokuapp.com/" class="project-link" target="_blank" rel="noopener noreferrer">MedFly</a>
+        <p class="project-desc">Full-stack app for drone delivery of medication with mobile-first design and Figma prototypes.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="about">
+    <h3>About Me</h3>
+    <p>I’m Ibrahim, a mechanical engineer turned developer combining technical design with modern web technologies. I thrive in team environments, enjoy problem-solving, and am passionate about building impactful software that blends user experience with robust backend logic.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Ibrahim Ali | <a href="https://github.com/ibby-ali2" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="https://www.linkedin.com/in/ibby-ali/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+  </footer>
+
+</body>
 </html>
+
