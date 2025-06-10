@@ -11,94 +11,126 @@
       box-sizing: border-box;
       margin: 0; padding: 0;
       font-family: 'Open Sans', sans-serif;
+      scroll-behavior: smooth;
     }
     body {
-      background: #f9f7f7;
+      background: linear-gradient(135deg, #e2e8f0, #f9f7f7);
       color: #333;
       line-height: 1.6;
       padding: 20px;
       max-width: 900px;
       margin: 0 auto;
+      overflow-x: hidden;
     }
     a {
       color: #0077cc;
       text-decoration: none;
-      transition: color 0.3s ease;
+      transition: color 0.3s ease, transform 0.2s ease;
     }
     a:hover {
       color: #004a99;
+      transform: scale(1.05);
     }
 
     header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
+      animation: fadeInDown 1s ease forwards;
     }
 
     #profile-pic {
-      width: 140px;
-      height: 140px;
+      width: 160px;
+      height: 160px;
       object-fit: cover;
       border-radius: 50%;
-      border: 3px solid #0077cc;
-      margin-bottom: 20px;
+      border: 4px solid #0077cc;
+      margin-bottom: 25px;
+      box-shadow: 0 8px 20px rgba(0, 119, 204, 0.4);
+      transition: transform 0.3s ease;
+    }
+    #profile-pic:hover {
+      transform: scale(1.1) rotate(3deg);
+      box-shadow: 0 12px 30px rgba(0, 119, 204, 0.7);
     }
 
     h1 {
       font-weight: 700;
-      font-size: 2.5rem;
+      font-size: 3rem;
       color: #2a2a72;
       margin-bottom: 10px;
+      letter-spacing: 1.5px;
+      text-shadow: 1px 1px 4px rgba(42, 42, 114, 0.3);
     }
     h2 {
       font-weight: 600;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       color: #cf6a87;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       font-style: italic;
     }
     p.lead {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       color: #555;
-      max-width: 600px;
-      margin: 0 auto 40px auto;
+      max-width: 650px;
+      margin: 0 auto 50px auto;
+      font-weight: 400;
     }
 
     /* Contact buttons */
     .btn-container {
       display: flex;
       justify-content: center;
-      gap: 15px;
-      margin-bottom: 50px;
+      gap: 18px;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
     }
     .btn {
-      background: #0077cc;
+      background: linear-gradient(45deg, #0077cc, #cf6a87);
       color: white;
-      padding: 12px 25px;
+      padding: 14px 28px;
       border-radius: 30px;
-      font-weight: 600;
-      box-shadow: 0 4px 8px rgba(0, 119, 204, 0.3);
-      transition: background 0.3s ease;
+      font-weight: 700;
+      box-shadow: 0 6px 15px rgba(207, 106, 135, 0.5);
+      transition: background 0.4s ease, box-shadow 0.3s ease, transform 0.2s ease;
+      font-size: 1.05rem;
+      display: inline-block;
+      user-select: none;
     }
-    .btn:hover {
-      background: #004a99;
+    .btn:hover, .btn:focus {
+      background: linear-gradient(45deg, #cf6a87, #0077cc);
+      box-shadow: 0 10px 25px rgba(42, 42, 114, 0.8);
+      transform: scale(1.1);
+      outline: none;
     }
 
     section {
       background: white;
-      padding: 30px 40px;
-      margin-bottom: 30px;
-      border-radius: 15px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      padding: 35px 45px;
+      margin-bottom: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      opacity: 0;
+      transform: translateY(40px);
+      animation-fill-mode: forwards;
+      animation-duration: 0.8s;
+      animation-timing-function: ease-out;
+      animation-delay: var(--delay, 0s);
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     section h3 {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       color: #2a2a72;
-      border-bottom: 3px solid #cf6a87;
+      border-bottom: 4px solid #cf6a87;
       display: inline-block;
-      padding-bottom: 5px;
+      padding-bottom: 7px;
       font-weight: 700;
-      font-size: 1.8rem;
+      font-size: 2rem;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 3px rgba(207, 106, 135, 0.3);
     }
 
     /* Skills list */
@@ -106,51 +138,114 @@
       list-style: none;
       display: flex;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 18px;
+      justify-content: center;
     }
     .skills-list li {
-      background: #cf6a87;
+      background: linear-gradient(135deg, #cf6a87, #f06a6a);
       color: white;
-      padding: 8px 15px;
-      border-radius: 20px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      box-shadow: 0 2px 6px rgba(207, 106, 135, 0.4);
+      padding: 12px 22px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 5px 15px rgba(207, 106, 135, 0.6);
+      cursor: default;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: popIn 0.8s ease forwards;
+    }
+    .skills-list li:hover {
+      transform: scale(1.15);
+      box-shadow: 0 8px 20px rgba(240, 106, 106, 0.9);
     }
 
-    /* Projects */
+    /* Animate skill badges with stagger */
+    .skills-list li:nth-child(1) { animation-delay: 0.1s; }
+    .skills-list li:nth-child(2) { animation-delay: 0.2s; }
+    .skills-list li:nth-child(3) { animation-delay: 0.3s; }
+    .skills-list li:nth-child(4) { animation-delay: 0.4s; }
+    .skills-list li:nth-child(5) { animation-delay: 0.5s; }
+    .skills-list li:nth-child(6) { animation-delay: 0.6s; }
+    .skills-list li:nth-child(7) { animation-delay: 0.7s; }
+    .skills-list li:nth-child(8) { animation-delay: 0.8s; }
+    .skills-list li:nth-child(9) { animation-delay: 0.9s; }
+    .skills-list li:nth-child(10) { animation-delay: 1s; }
+
+    /* Projects cards */
     .projects-list {
       list-style: none;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
     }
-    .projects-list li {
-      margin-bottom: 18px;
-      font-size: 1rem;
+    @media (min-width: 600px) {
+      .projects-list {
+        grid-template-columns: 1fr 1fr;
+      }
     }
-    .projects-list a.project-link {
+    .project-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+      padding: 25px 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+    }
+    .project-title {
       font-weight: 700;
-      color: #0077cc;
+      font-size: 1.4rem;
+      color: #2a2a72;
+      margin-bottom: 10px;
       font-family: 'Roboto Mono', monospace;
     }
-    .projects-list a.project-link:hover {
-      color: #004a99;
-      text-decoration: underline;
-    }
     .project-desc {
-      margin-top: 5px;
       font-style: italic;
       color: #555;
+      margin-bottom: 15px;
+      min-height: 65px;
+    }
+    .project-achievements {
+      font-size: 0.95rem;
+      color: #cf6a87;
+      font-weight: 600;
+      margin-bottom: 20px;
+      list-style-type: disc;
+      margin-left: 18px;
+    }
+    .project-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .project-links a.btn {
+      font-size: 0.95rem;
+      padding: 10px 20px;
+      border-radius: 25px;
+      box-shadow: 0 5px 15px rgba(207, 106, 135, 0.4);
     }
 
     /* Footer */
     footer {
       text-align: center;
-      margin-top: 60px;
-      font-size: 0.9rem;
+      margin-top: 80px;
+      font-size: 1rem;
       color: #777;
+      user-select: none;
+      font-weight: 600;
     }
     footer a {
       color: #cf6a87;
-      font-weight: 600;
+      font-weight: 700;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+    footer a:hover {
+      color: #7a3048;
     }
 
     /* Responsive */
@@ -159,7 +254,7 @@
         padding: 15px;
       }
       section {
-        padding: 20px;
+        padding: 25px 20px;
       }
       .btn-container {
         flex-direction: column;
@@ -172,66 +267,142 @@
         justify-content: center;
       }
     }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes popIn {
+      0% {opacity: 0; transform: scale(0.3);}
+      100% {opacity: 1; transform: scale(1);}
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <img id="profile-pic" src="images/profile.jpeg" alt="Photo of Ibrahim Ali" />
+    <img id="profile-pic" src="images/profile.jpeg" alt="Ibrahim Ali Profile Picture" />
     <h1>Ibrahim Ali</h1>
-    <h2>Full-Stack Developer 👨🏽‍💻 & Engineer 👷🏽‍♂️</h2>
-    <p class="lead">Technically strong engineer turned full-stack developer, passionate about clean code, team-driven problem solving, and continuous learning. Currently sharpening skills through the Le Wagon bootcamp.</p>
+    <h2>Full-Stack Developer | Mechanical Engineer | Tech Enthusiast</h2>
+    <p class="lead">Creative and results-driven developer specializing in Ruby on Rails, React, and modern web technologies. Passionate about building sleek user experiences, scalable backend systems, and innovative projects that solve real problems.</p>
 
     <div class="btn-container">
-      <a href="https://github.com/ibby-ali2" class="btn" target="_blank" rel="noopener noreferrer">GitHub Profile 🐙</a>
-      <a href="https://www.linkedin.com/in/ibby-ali/" class="btn" target="_blank" rel="noopener noreferrer">LinkedIn Profile 🖇️</a>
-      <a href="mailto:ibbyali2@gmail.com" class="btn">Email Me 📧</a>
+      <a href="https://www.linkedin.com/in/ibrahim-ali" target="_blank" rel="noopener noreferrer" class="btn">LinkedIn</a>
+      <a href="https://github.com/Ibby-ali2" target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
+      <a href="mailto:ibbyali2@gmail.com" class="btn">Email Me</a>
+      <a href="Ibrahim Ali - CV1.pdf" download class="btn">Download CV</a>
     </div>
   </header>
 
-  <section id="skills">
-    <h3>Skills & Technologies</h3>
+  <section id="skills" style="--delay: 0.1s;">
+    <h3>Technical Skills</h3>
     <ul class="skills-list">
       <li>Ruby on Rails</li>
+      <li>React.js</li>
       <li>JavaScript (ES6+)</li>
-      <li>HTML & CSS</li>
-      <li>SQL & PostgreSQL</li>
-      <li>React</li>
-      <li>Git & GitHub</li>
-      <li>Python & Data Science</li>
-      <li>Figma & UI Design</li>
+      <li>HTML5 &amp; CSS3</li>
+      <li>PostgreSQL</li>
+      <li>Git &amp; GitHub</li>
+      <li>REST APIs</li>
+      <li>Bootstrap 5</li>
+      <li>Cloudinary</li>
       <li>Heroku Deployment</li>
-      <li>CAD & Mechanical Design</li>
     </ul>
   </section>
 
-  <section id="projects">
+  <section id="projects" style="--delay: 0.3s;">
     <h3>Projects Showcase</h3>
     <ul class="projects-list">
-      <li>
-        <a href="https://github.com/ibby-ali2/airbnb-clone" class="project-link" target="_blank" rel="noopener noreferrer">Airbnb Replica</a>
-        <p class="project-desc">A clean clone of Airbnb homepage with card layouts using Ruby on Rails, CSS, Bootstrap, and SQLite.</p>
+      <li class="project-card">
+        <div class="project-title">Rails Cookbook</div>
+        <div class="project-desc">A recipe sharing platform with user authentication and rich search filters.</div>
+        <ul class="project-achievements">
+          <li>Implemented user signup/login with Devise</li>
+          <li>Built advanced search with scopes and filters</li>
+          <li>Deployed on Heroku with PostgreSQL</li>
+        </ul>
+        <div class="project-links">
+          <a href="https://github.com/Ibby-ali2/rails_cookbook" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+        </div>
       </li>
-      <li>
-        <a href="https://github.com/ibby-ali2/deliveroo-clone" class="project-link" target="_blank" rel="noopener noreferrer">Deliveroo Clone</a>
-        <p class="project-desc">Food delivery platform with full CRUD, MVC structure, and restaurant database built in Ruby on Rails.</p>
+
+      <li class="project-card">
+        <div class="project-title">Awesome Garage</div>
+        <div class="project-desc">Car rental platform featuring dynamic availability and pricing management.</div>
+        <ul class="project-achievements">
+          <li>Created intuitive admin dashboard for vehicle management</li>
+          <li>Integrated Stripe for secure payments</li>
+          <li>Responsive design using Bootstrap</li>
+        </ul>
+        <div class="project-links">
+          <a href="https://github.com/Ibby-ali2/rails-awesome-garage" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+        </div>
       </li>
-      <li>
-        <a href="https://medfly-lewagon-4a2de7cc09aa.herokuapp.com/" class="project-link" target="_blank" rel="noopener noreferrer">MedFly</a>
-        <p class="project-desc">Full-stack app for drone delivery of medication with mobile-first design and Figma prototypes.</p>
+
+      <li class="project-card">
+        <div class="project-title">Vroom Rent-a-car</div>
+        <div class="project-desc">A user-friendly car rental app with map-based search and booking.</div>
+        <ul class="project-achievements">
+          <li>Implemented Mapbox integration for location search</li>
+          <li>Developed booking calendar and payment system</li>
+          <li>Test-driven development with RSpec</li>
+        </ul>
+        <div class="project-links">
+          <a href="https://github.com/Ibby-ali2/vroom" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+        </div>
+      </li>
+
+      <li class="project-card">
+        <div class="project-title">MedFly</div>
+        <div class="project-desc">Medical appointment booking platform with doctor profiles and patient reviews.</div>
+        <ul class="project-achievements">
+          <li>Designed user-friendly multi-role authentication</li>
+          <li>Integrated reviews and star-rating system</li>
+          <li>Deployed live on Heroku with continuous integration</li>
+        </ul>
+        <div class="project-links">
+          <a href="https://github.com/Ibby-ali2/medfly" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+          <a href="https://medfly-lewagon-4a2de7cc09aa.herokuapp.com/" class="btn" target="_blank" rel="noopener noreferrer">Heroku App</a>
+        </div>
       </li>
     </ul>
   </section>
 
-  <section id="about">
-    <h3>About Me</h3>
-    <p>I’m Ibrahim, a mechanical engineer turned developer combining technical design with modern web technologies. I thrive in team environments, enjoy problem-solving, and am passionate about building impactful software that blends user experience with robust backend logic.</p>
+  <section id="github-pages" style="--delay: 0.5s; text-align:center;">
+    <h3>Other GitHub Pages</h3>
+    <div class="btn-container" style="justify-content:center; gap: 20px;">
+      <a href="https://ibby-ali2.github.io/my-profile-react/" class="btn" target="_blank" rel="noopener noreferrer">React.JS Profile</a>
+      <a href="https://ibby-ali2.github.io/landing/" class="btn" target="_blank" rel="noopener noreferrer">Landing</a>
+      <a href="https://ibby-ali2.github.io/stupid-coaching/" class="btn" target="_blank" rel="noopener noreferrer">Stupid Coaching</a>
+      <a href="https://ibby-ali2.github.io/task-manager/" class="btn" target="_blank" rel="noopener noreferrer">Task Manager</a>
+    </div>
   </section>
 
   <footer>
-    <p>© 2025 Ibrahim Ali | <a href="https://github.com/ibby-ali2" target="_blank" rel="noopener noreferrer">GitHub</a> | <a href="https://www.linkedin.com/in/ibby-ali/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+  <p>© 2025 Ibrahim Ali. Built with ❤️ and code.</p>
+  <p>
+    Find me on
+    <a href="https://github.com/ibrahimali" target="_blank" rel="noopener noreferrer">GitHub</a>,
+    <a href="https://linkedin.com/in/ibrahimali" target="_blank" rel="noopener noreferrer">LinkedIn</a>,
+    or <a href="mailto:ibrahim.ali@example.com">email me</a>.
+  </p>
   </footer>
 
+  <script>
+    // Scroll fade-in animation for sections
+    const sections = document.querySelectorAll('section');
+    const options = { threshold: 0.2 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    sections.forEach(section => observer.observe(section));
+  </script>
 </body>
 </html>
-
