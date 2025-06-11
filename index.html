@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  />
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    defer
+  ></script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ibrahim Ali | Full-Stack Developer</title>
@@ -32,22 +41,135 @@
       transform: scale(1.05);
     }
 
-    header {
-      text-align: center;
-      margin-bottom: 50px;
-      animation: fadeInDown 1s ease forwards;
-    }
+/* === Navbar Styles === */
+.navbar-container {;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
 
-    #profile-pic {
-      width: 160px;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid #0077cc;
-      margin-bottom: 25px;
-      box-shadow: 0 8px 20px rgba(0, 119, 204, 0.4);
-      transition: transform 0.3s ease;
-    }
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-btn {
+  text-decoration: none;
+  background: linear-gradient(45deg, #00b894, #0984e3);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 184, 148, 0.4);
+  transition: background 0.4s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  font-size: 1rem;
+  display: inline-block;
+  user-select: none;
+}
+
+.nav-btn:hover,
+.nav-btn:focus {
+  background: linear-gradient(45deg, #0984e3, #00b894);
+  box-shadow: 0 8px 20px rgba(9, 132, 227, 0.6);
+  transform: scale(1.08);
+  outline: none;
+}
+
+
+/* === Hero Section Styles === */
+.hero-section {
+  text-align: center;
+  padding: 3rem 1rem;
+  max-width: 900px;
+  margin: 2rem auto 0 auto;
+}
+
+#profile-pic {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.hero-section h2 {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.lead {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 2rem;
+}
+
+.btn-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 1.25rem;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .btn-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
     #profile-pic:hover {
       transform: scale(1.1) rotate(3deg);
       box-shadow: 0 12px 30px rgba(0, 119, 204, 0.7);
@@ -228,6 +350,12 @@
       border-radius: 25px;
       box-shadow: 0 5px 15px rgba(207, 106, 135, 0.4);
     }
+    .carousel-inner img {
+      height: 250px;
+      width: 100%;
+      object-fit: contain;
+      background-color: #f8f9fa; /* optional: adds light background behind transparent images */
+    }
 
     /* Footer */
     footer {
@@ -281,19 +409,36 @@
 </head>
 <body>
 
-  <header>
-    <img id="profile-pic" src="images/profile.jpeg" alt="Ibrahim Ali Profile Picture" />
-    <h1>Ibrahim Ali</h1>
-    <h2>Full-Stack Developer | Mechanical Engineer | Tech Enthusiast</h2>
-    <p class="lead">Creative and results-driven developer specializing in Ruby on Rails, React, and modern web technologies. Passionate about building sleek user experiences, scalable backend systems, and innovative projects that solve real problems.</p>
+<!-- Navbar -->
+<header class="navbar">
+    <div class="logo">My Portfolio</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#skills" class="nav-btn">Skills</a></li>
+        <li><a href="#projects" class="nav-btn">Projects</a></li>
+      </ul>
+    </nav>
+</header>
 
-    <div class="btn-container">
-      <a href="https://www.linkedin.com/in/ibby-ali/" target="_blank" rel="noopener noreferrer" class="btn">LinkedIn</a>
-      <a href="https://github.com/Ibby-ali2" target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
-      <a href="mailto:ibbyali2@gmail.com" class="btn">Email Me</a>
-      <a href="Ibrahim Ali - CV1.pdf" download class="btn">Download CV</a>
-    </div>
-  </header>
+<!-- Hero Section -->
+<header class="hero-section">
+  <img id="profile-pic" src="images/profile.jpeg" alt="Ibrahim Ali Profile Picture" loading="lazy" />
+  <h1>Ibrahim Ali</h1>
+  <h2>Full-Stack Developer | Mechanical Engineer | Tech Enthusiast</h2>
+  <p class="lead">
+    Creative and results-driven developer specializing in Ruby on Rails, React, and modern web technologies.
+    Passionate about building sleek user experiences, scalable backend systems, and innovative projects that solve real problems.
+  </p>
+
+  <div class="btn-container">
+    <a href="https://www.linkedin.com/in/ibby-ali/" target="_blank" class="btn">LinkedIn</a>
+    <a href="https://github.com/Ibby-ali2" target="_blank" class="btn">GitHub</a>
+    <a href="mailto:ibbyali2@gmail.com" class="btn">Email Me</a>
+    <a href="Ibrahim Ali - CV1.pdf" download class="btn">Download CV</a>
+  </div>
+</header>
+
+
 
   <section id="skills" style="--delay: 0.1s;">
     <h3>Technical Skills</h3>
@@ -341,32 +486,85 @@
       </li>
 
       <li class="project-card">
-        <div class="project-title">Vroom Rent-a-car</div>
-        <div class="project-desc">A user-friendly car rental app with map-based search and booking.</div>
+        <div class="project-title h5 mb-2">Vroom Rent-a-car</div>
+
+        <div id="vroomCarousel" class="carousel slide mb-3" data-bs-ride="carousel">
+          <div class="carousel-inner rounded">
+            <div class="carousel-item active">
+              <img src="images/Vroom1.png" class="d-block w-100" alt="Vroom Homepage" />
+            </div>
+            <div class="carousel-item">
+              <img src="images/Vroom2.png" class="d-block w-100" alt="Vroom Search Page" />
+            </div>
+            <div class="carousel-item">
+              <img src="images/Vroom3.png" class="d-block w-100" alt="Vroom Manage Orders" />
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#vroomCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#vroomCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+        <p class="project-desc">A user-friendly car rental app with map-based search and booking.</p>
+
         <ul class="project-achievements">
           <li>Implemented Mapbox integration for location search</li>
           <li>Developed booking calendar and payment system</li>
           <li>Test-driven development with RSpec</li>
         </ul>
-        <div class="project-links">
-          <a href="https://github.com/Ibby-ali2/vroom" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
-        </div>
-      </li>
 
-      <li class="project-card">
-        <div class="project-title">MedFly</div>
-        <div class="project-desc">Medical appointment booking platform with doctor profiles and patient reviews.</div>
-        <ul class="project-achievements">
-          <li>Designed user-friendly multi-role authentication</li>
-          <li>Integrated reviews and star-rating system</li>
-          <li>Deployed live on Heroku with continuous integration</li>
-        </ul>
-        <div class="project-links">
-          <a href="https://github.com/Ibby-ali2/medfly" class="btn" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
-          <a href="https://medfly-lewagon-4a2de7cc09aa.herokuapp.com/" class="btn" target="_blank" rel="noopener noreferrer">Heroku App</a>
-        </div>
-      </li>
-    </ul>
+  <div class="project-links mt-2">
+    <a href="https://github.com/Ibby-ali2/vroom" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+      GitHub Repo
+    </a>
+  </div>
+</li>
+
+
+<li class="project-card">
+  <div class="project-title h5 mb-2">MedFly</div>
+
+  <div id="medflyCarousel" class="carousel slide mb-3" data-bs-ride="carousel">
+    <div class="carousel-inner rounded">
+      <div class="carousel-item active">
+        <img src="images/MedFly.png" class="d-block w-100" alt="MedFly Screenshot 1" />
+      </div>
+      <div class="carousel-item">
+        <img src="images/MedFly2.png" class="d-block w-100" alt="MedFly Screenshot 2" />
+      </div>
+      <div class="carousel-item">
+        <img src="images/MedFly3.png" class="d-block w-100" alt="MedFly Screenshot 3" />
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#medflyCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#medflyCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div class="project-desc">Medicine delivery for patients that are physically, geographically restrained via drone methods.</div>
+
+  <ul class="project-achievements">
+    <li>Designed user-friendly multi-role authentication</li>
+    <li>Integrated reviews and star-rating system and Maps</li>
+    <li>Deployed live on Heroku with continuous integration</li>
+  </ul>
+
+  <div class="project-links mt-2">
+    <a href="https://github.com/Ibby-ali2/medfly" class="btn btn-primary" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
+    <a href="https://medfly-lewagon-4a2de7cc09aa.herokuapp.com/" class="btn btn-outline-primary" target="_blank" rel="noopener noreferrer">Heroku App</a>
+  </div>
+  </li>
+  </ul>
   </section>
 
   <section id="github-pages" style="--delay: 0.5s; text-align:center;">
